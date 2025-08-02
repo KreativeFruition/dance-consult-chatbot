@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dance Consult AI Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; }
+
+    /* Glowy Orb Button */
+    #chat-toggle {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      width: 64px;
+      height: 64px;
+      background: radial-gradient(circle, #fff 30%, transparent 70%);
+      border-radius: 50%;
+      box-shadow: 0 0 30px 10px rgba(255, 122, 0, 0.4);
+      background-image: linear-gradient(135deg, #FF7A00, #FF00FF);
+      animation: float 3s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Modal */
+    #chat-modal {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      width: 400px;
+      max-width: 90vw;
+      height: 600px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+    }
+
+    #chat-header {
+      padding: 12px 16px;
+      background: #FF7A00;
+      color: white;
+      font-weight: bold;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    #chat-messages {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+    }
+
+    #chat-input-area {
+      display: flex;
+      padding: 12px;
+      border-top: 1px solid #eee;
+    }
+
+    #chat-input {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-right: 8px;
+    }
+
+    #chat-send {
+      padding: 8px 12px;
+      background: #FF00FF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .chat-bubble {
+      margin: 6px 0;
+      padding: 10px;
+      border-radius: 12px;
+      max-width: 80%;
+    }
+
+    .user { background: #f0f0f0; align-self: flex-end; }
+    .bot  { background: #FF7A00; color: white; align-self: flex-start; }
+  </style>
+</head>
+<body>
+
+<div id="chat-toggle">1:1</div>
+
+<div id="chat-modal">
+  <div id="chat-header">Dance Consult AI</div>
+  <div id="chat-messages"></div>
+  <div id="chat-input-area">
+    <input type="text" id="chat-input" placeholder="Ask me anything..."/>
+    <button id="chat-send">Send</button>
+  </div>
+</div>
+
+<script src="chat.js"></script>
+</body>
+</html>
